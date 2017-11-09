@@ -1,0 +1,28 @@
+{
+  "version": "0.0.1",
+  "name": "beatle-boilerplate-console",
+  "author": {
+    "name": "baqian <st403471258@gmail.com>"
+  },
+  "maintainers": [
+    {
+      "name": "baqian",
+      "email": "st403471258@gmail.com"
+    }
+  ],
+  "keywords": [
+    "webpack",
+    "beatle"
+  ],
+  "description": "Beatle样本库 - 管控台项目",
+  "dependencies": {
+    "@ali/beatle": "latest",
+    "antd": "^3.0.0-beta.1",
+    "classnames": "~2.2.5",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
+    "prop-types": "15.6.0"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}

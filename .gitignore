@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+.package/
+xuejiang.sh
+git-m
+.vscode/
+.DS_Store
+*.log
+build/

@@ -1,0 +1,43 @@
+{
+  "version": "0.0.1",
+  "name": "Beatle App",
+  "index": "index.html",
+  "main": "./assets/app.jsx",
+  "output": {
+    "path": "build",
+    "version": "",
+    "app": "app",
+    "vendor": "vendor"
+  },
+  "jsx": true,
+  "vendors": [
+    "react",
+    "react-dom",
+    "react-router",
+    "redux",
+    "react-redux",
+    "react-router-redux",
+    "redux-logger",
+    "redux-thunk",
+    "hoist-non-react-statics",
+    "isomorphic-fetch",
+    "cuid",
+    "recompose",
+    "reselect",
+    "rxjs",
+    "events",
+    "seamless-immutable",
+    "moment",
+    "redux-promise-middleware",
+    "react-redux-loading-bar",
+    "@ali/beatle"
+  ],
+  "provide": {
+    "React": "react",
+    "ReactDOM": "react-dom"
+  },
+  "devtool": "",
+  "partition": {
+    "NODE_ENV": "production"
+  }
+}
