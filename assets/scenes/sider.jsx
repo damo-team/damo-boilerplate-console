@@ -124,6 +124,7 @@ export default class Sider extends Component {
           mode="inline"
           openKeys={this.props.collapsed? null : this.state.openKeys}
           onOpenChange={(openKeys) => this.setState({openKeys: openKeys})}
+          onSelect={(item) => this.setState({selectedKeys: item.selectedKeys})}
           selectedKeys={this.state.selectedKeys}
           style={{
           margin: '16px 0',
