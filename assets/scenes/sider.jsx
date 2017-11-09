@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
-import Beatle from '@ali/beatle';
+import damo from 'damo-core';
 
 export default class Sider extends Component {
   static propTypes = {
@@ -91,9 +91,9 @@ export default class Sider extends Component {
                 {icon}<span>{name}</span>
               </a>
             ) : (
-              <Beatle.Link to={itemPath} target={target}>
+              <damo.Link to={itemPath} target={target}>
                 {icon}<span>{name}</span>
-              </Beatle.Link>
+              </damo.Link>
             )
           }
         </Menu.Item>
@@ -112,12 +112,12 @@ export default class Sider extends Component {
         width={256}
         className='j-sider'>
         <div className='j-sider-logo'>
-          <Beatle.Link to="/">
+          <damo.Link to="/">
             <img
               src="https://gw.alipayobjects.com/zos/rmsportal/iwWyPinUoseUxIAeElSx.svg"
               alt="logo"/>
-            <h1>Beatle-Console-App</h1>
-          </Beatle.Link>
+            <h1>Console-App</h1>
+          </damo.Link>
         </div>
         <Menu
           theme="dark"

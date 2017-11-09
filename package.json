@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "beatle-boilerplate-console",
+  "name": "damo-boilerplate-console",
   "author": {
     "name": "baqian <st403471258@gmail.com>"
   },
@@ -14,14 +14,23 @@
     "webpack",
     "beatle"
   ],
-  "description": "Beatle样本库 - 管控台项目",
+  "description": "Damo样本库 - 管控台项目",
+  "homepage": "https://github.com/damo-team/damo-boilerplate-console",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/damo-team/damo-boilerplate-console.git"
+  },
+  "bugs": {
+    "url": "https://github.com/damo-team/damo-boilerplate-console/issues"
+  },
   "dependencies": {
-    "@ali/beatle": "latest",
     "antd": "^3.0.0-beta.1",
     "classnames": "~2.2.5",
+    "damo-cntd": "latest",
+    "damo-core": "^0.1.9",
+    "prop-types": "15.6.0",
     "react": "15.4.1",
-    "react-dom": "15.4.1",
-    "prop-types": "15.6.0"
+    "react-dom": "15.4.1"
   },
   "readmeFilename": "README.md",
   "license": "MIT"

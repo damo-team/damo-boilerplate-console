@@ -3,17 +3,26 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
 import Layout from 'antd/lib/layout';
-import Beatle from '@ali/beatle';
+import damo from 'damo-core';
 
 import Sider from './sider';
 import Header from './header';
 import './index.less';
 
-const COLLAPSED_KEY = 'beatle_console_sidebar';
+const COLLAPSED_KEY = 'damo_console_sidebar';
 
-export default class Root extends Component {
+class Root extends Component {
+  static propTypes = {
+    profile: PropTypes.object.isRequired,
+    getUser: PropTypes.func.isRequired
+  }
+
   static extension = {
     name: '导航'
+  }
+
+  componentWillMount(){
+    this.props.getUser();
   }
 
   constructor(props) {
@@ -43,9 +52,9 @@ export default class Root extends Component {
     return (
       <div className='layout-wrap'>
         <Layout className="ant-layout-has-sider">
-        <Sider {...collapseCfg} route={this.props.children ? this.props.children.props.route : this.props.route} menus={Beatle.getRoutes()}/>
+        <Sider {...collapseCfg} route={this.props.children ? this.props.children.props.route : this.props.route} menus={damo.getRoutes()}/>
         <Layout>
-          <Header {...collapseCfg} avatar="https://work.alibaba-inc.com/photo/65867.jpg" nick="hi"/>
+          <Header {...collapseCfg} avatar={this.props.profile.avatar_url} nick={this.props.profile.login}/>
           <Layout.Content>
             {this.props.children}
           </Layout.Content>
@@ -55,3 +64,5 @@ export default class Root extends Component {
     )
   }
 }
+
+export default damo.view(['user'], Root);

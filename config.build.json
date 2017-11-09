@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "Beatle App",
+  "name": "Damo App",
   "index": "index.html",
   "main": "./assets/app.jsx",
   "output": {
@@ -30,7 +30,8 @@
     "moment",
     "redux-promise-middleware",
     "react-redux-loading-bar",
-    "@ali/beatle"
+    "damo-core",
+    "damo-cntd"
   ],
   "provide": {
     "React": "react",
