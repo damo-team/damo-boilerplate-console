@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 export default class Demo extends Component{
   static extension = {
-    name: 'Damo页面'
+    title: 'Damo页面'
   }
   render(){
     return (<h1>Hello World</h1>);

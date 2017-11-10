@@ -9,7 +9,7 @@ import Dropdown from 'antd/lib/dropdown';
 import Spin from 'antd/lib/spin';
 import Avatar from 'antd/lib/avatar';
 
-import HeaderSearch from '../components/headerSearch';
+import HeaderSearch from '../../components/headerSearch';
 
 export default class Header extends Component {
   static propTypes = {

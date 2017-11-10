@@ -21,4 +21,4 @@ damo.autoLoadServices(require.context('./services', false, /\w+\.js$/));
 // 自动加载路由
 damo.autoLoadRoutes(require.context('./scenes', true, /index\.jsx$/), {strict: false});
 
-damo.run();
+damo.run(document.getElementById('main'));
