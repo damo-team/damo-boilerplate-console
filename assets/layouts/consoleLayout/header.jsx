@@ -11,7 +11,7 @@ import Avatar from 'antd/lib/avatar';
 
 import HeaderSearch from '../../components/headerSearch';
 
-export default class Header extends Component {
+export default class Header extends React.PureComponent {
   static propTypes = {
     collapsed: PropTypes.bool,
     onCollapse: PropTypes.func,

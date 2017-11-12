@@ -6,7 +6,7 @@ import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import damo from 'damo-core';
 
-export default class Sider extends Component {
+export default class Sider extends React.PureComponent {
   static propTypes = {
     routes: PropTypes.array.isRequired,
     route: PropTypes.object,

@@ -12,7 +12,7 @@ import './index.less';
 
 const COLLAPSED_KEY = 'damo_console_sidebar';
 
-class Root extends Component {
+export default class ConsoleLayout extends React.PureComponent {
   static getLayoutProps = function(parentProps, extra){
     return Object.assign({
       sider: {
@@ -24,7 +24,7 @@ class Root extends Component {
         avatar: parentProps.profile.avatar_url,
         nick: parentProps.profile.login
       },
-      viewContent: parentProps.children
+      viewContent: parentProps.children || parentProps.component
     }, extra);
   }
 
@@ -32,7 +32,8 @@ class Root extends Component {
     sider: PropTypes.shape({
       route: PropTypes.object,
       routes: PropTypes.array,
-      subRoutes: PropTypes.object
+      subRoutes: PropTypes.object,
+      brand: PropTypes.object
     }),
     header: PropTypes.shape({
       avatar: PropTypes.string,
@@ -69,7 +70,6 @@ class Root extends Component {
           .setItem(COLLAPSED_KEY, collapsed);
       }
     }
-
     return (
       <div className={'j-layout-wrap ' + this.props.className}>
         <Layout className="ant-layout-has-sider">
@@ -77,7 +77,7 @@ class Root extends Component {
         <Layout>
           <Header {...collapseCfg} {...this.props.header}/>
           <Layout.Content>
-            {this.props.viewContent}
+            {this.props.viewContent || this.props.children}
           </Layout.Content>
         </Layout>
       </Layout>
@@ -85,5 +85,3 @@ class Root extends Component {
     )
   }
 }
-
-export default damo.view(['user'], Root);

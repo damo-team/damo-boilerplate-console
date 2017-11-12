@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "damo-boilerplate-console",
   "author": {
     "name": "baqian <st403471258@gmail.com>"
@@ -29,8 +29,8 @@
     "damo-cntd": "latest",
     "damo-core": "^0.1.9",
     "prop-types": "15.6.0",
-    "react": "15.4.1",
-    "react-dom": "15.4.1"
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0"
   },
   "readmeFilename": "README.md",
   "license": "MIT"

@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
+
 import { Input, Icon, AutoComplete } from 'antd';
 import classNames from 'classnames';
 //import 'from ''./index.less';
