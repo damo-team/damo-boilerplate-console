@@ -28,32 +28,48 @@ export default class Login extends React.PureComponent {
           <Tabs.TabPane tab="账户密码登录" key="account">
             {this.props.errorMessage}
             <CustomForm
+              formLayout={{
+              labelCol: {
+                span: 0
+              },
+              wrapperCol: {
+                span: 24
+              }
+            }}
               options={[
-                {
-                  type: 'string',
-                  name: 'username',
-                  title: '账号'
-                }, {
-                  type: 'string',
-                  name: 'password',
-                  title: '密码'
-                }
-              ]}/>
+              {
+                type: 'string',
+                name: 'username',
+                title: '账号'
+              }, {
+                type: 'string',
+                name: 'password',
+                title: '密码'
+              }
+            ]}/>
           </Tabs.TabPane>
           <Tabs.TabPane tab="手机号登录" key="mobile">
             {this.props.errorMessage}
             <CustomForm
+              formLayout={{
+              labelCol: {
+                span: 0
+              },
+              wrapperCol: {
+                span: 24
+              }
+            }}
               options={[
-                {
-                  type: 'string',
-                  name: 'username',
-                  title: '账号'
-                }, {
-                  type: 'string',
-                  name: 'password',
-                  title: '密码'
-                }
-              ]}/>
+              {
+                type: 'string',
+                name: 'username',
+                title: '账号'
+              }, {
+                type: 'string',
+                name: 'password',
+                title: '密码'
+              }
+            ]}/>
           </Tabs.TabPane>
         </Tabs>
       </div>
