@@ -11,8 +11,7 @@ const COLLAPSED_KEY = 'damo_console_sidebar';
 
 class Root extends React.PureComponent {
   static propTypes = {
-    profile: PropTypes.object.isRequired,
-    getUser: PropTypes.func.isRequired
+    user: PropTypes.object.isRequired
   }
 
   static extension = {
@@ -20,13 +19,20 @@ class Root extends React.PureComponent {
   }
 
   componentWillMount(){
-    this.props.getUser();
+    this.props.user.getUser();
   }
 
   getLayout(){
     if(this.props.children){
-      const Layout = Layer.getLayout(this.props.children.props.route.extension.layout);
-      const layoutProps = Layout.getLayoutProps(this.props);
+      const layoutType = this.props.children.props.route.extension && this.props.children.props.route.extension.layout;
+      const Layout = Layer.getLayout(layoutType);
+      const layoutProps = Layout.getLayoutProps(this.props, {
+        subRoutes: {
+          user: {
+            title: '用户管理'
+          }
+        }
+      });
       return (<Layout {...layoutProps} />);
     }else{
       const Layout = Layer.getLayout('consoleLayout');
@@ -40,4 +46,4 @@ class Root extends React.PureComponent {
   }
 }
 
-export default damo.view(['user'], Root);
+export default damo.view(['user'], Root, true);

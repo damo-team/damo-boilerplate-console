@@ -51,7 +51,7 @@ export default class Sider extends React.PureComponent {
     if (route.resolvePath) {
       resolvePath = route.resolvePath;
     } else if(route.name){
-      const paths = [route.name];
+      const paths = [route.navKey ? route.navKey + '-' + route.name : route.name];
       let item = route;
       while(item = item.parent){
         paths.unshift(item.name);
@@ -82,7 +82,9 @@ export default class Sider extends React.PureComponent {
           });
           return null;
         }else{
+          const navKey = item.navKey;
           item = subMenus[item.navKey];
+          item.name = navKey
         }
       }else{
         return null;
@@ -92,7 +94,7 @@ export default class Sider extends React.PureComponent {
     // #! 从路由配置项中获取extension 和 childRoutes
     const extension = item.extension || {};
     const target = extension.target || item.target; 
-    const title = extension.title || item.name;
+    const title = extension.title || item.title || item.name;
     const icon = extension.icon && (<Icon type={extension.icon} />);
     const children = item.children || item.childRoutes || [];
     
@@ -101,7 +103,7 @@ export default class Sider extends React.PureComponent {
         target: target,
         icon: icon,
         title: title,
-        name: item.name,
+        name: item.navKey ? item.navKey + '-' + item.name : item.name,
         children: children,
         path: children.length ? null : this.getResolvePath(item)
       } 
@@ -115,7 +117,7 @@ export default class Sider extends React.PureComponent {
       return [];
     }
     return menusData.map((item) => {
-      item = this.packNode(item);
+      item = this.packNode(item, level);
       
       if (!item) {
         return null;

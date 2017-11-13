@@ -18,11 +18,11 @@ export default class ConsoleLayout extends React.PureComponent {
       sider: {
         route: parentProps.children ? parentProps.children.props.route : parentProps.route,
         routes: damo.getRoutes()[0].childRoutes,
-        subRoutes: {}
+        subMenus: extra && extra.subRoutes
       },
       header: {
-        avatar: parentProps.profile.avatar_url,
-        nick: parentProps.profile.login
+        avatar: parentProps.user.profile.avatar_url,
+        nick: parentProps.user.profile.login
       },
       viewContent: parentProps.children || parentProps.component
     }, extra);
