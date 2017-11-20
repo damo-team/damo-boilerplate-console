@@ -41,13 +41,5 @@
   "devtool": "#cheap-source-map",
   "partition": {
     "NODE_ENV": "development"
-  },
-  "proxy": [
-    {
-      "host": "http://api.github.com/",
-      "routes": [
-        "/repo"
-      ]
-    }
-  ]
+  }
 }

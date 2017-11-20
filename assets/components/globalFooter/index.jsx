@@ -6,12 +6,7 @@ import Icon from 'antd/lib/icon';
 
 import './index.less';
 
-export default class HeaderSearch extends PureComponent {
-  static copyright = (
-    <div>Copyright
-      <Icon type="copyright"/>
-      2017 蚂蚁金服体验技术部出品</div>
-  );
+export default class GlobalFooter extends PureComponent {
   render() {
     const {className, links, copyright} = this.props;
 
@@ -19,16 +14,23 @@ export default class HeaderSearch extends PureComponent {
       <div className={'globalFooter ' + className}>
         {links && (
           <div className="links">
-            {links.map(link => (
-              <a
-                key={link.title}
-                target={link.blankTarget
-                ? '_blank'
-                : '_self'}
-                href={link.href}>
-                {link.title}
-              </a>
-            ))}
+            {links.map(link => {
+              const linkProps = link.action
+                ? {
+                  onClick: (e) => link.action(e, link)
+                }
+                : {
+                  target: link.blankTarget
+                    ? '_blank'
+                    : '_self',
+                  href: link.href
+                }
+              return (
+                <a key={link.name || link.title} {...linkProps}>
+                  {link.title}
+                </a>
+              )
+            })}
           </div>
         )}
         {copyright && <div className="copyright">{copyright}</div>}

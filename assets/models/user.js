@@ -1,15 +1,19 @@
-import damo from 'damo-core';
+import Damo from 'damo-core';
 
-export default class User extends damo.BaseModel{
+export default class User extends Damo.BaseModel{
   static initialState = {
     profile: {}
   }
 
-  getUser(){
+  getUser(params){
     this.setState({
       profile: {
-        response: damo.Api.get('https://api.github.com/users/baqian')
+        response: Damo.Api({
+          url: '../assets/devtool/mockData/account/',
+          method: 'get',
+          data: params
+        })
       }
-    })
+    });
   }
 }

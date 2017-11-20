@@ -1,11 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 
-import { Input, Icon, AutoComplete } from 'antd';
-import classNames from 'classnames';
-//import 'from ''./index.less';
+import Input from 'antd/lib/input';
+import Icon from 'antd/lib/icon';
+import AutoComplete from 'antd/lib/auto-complete';
+
 import './index.less';
+
 export default class HeaderSearch extends PureComponent {
   static defaultProps = {
     defaultActiveFirstOption: false,
@@ -14,7 +16,7 @@ export default class HeaderSearch extends PureComponent {
     onSearch: () => {},
     className: '',
     placeholder: '',
-    dataSource: [],
+    dataSource: []
   };
   static propTypes = {
     className: PropTypes.string,
@@ -23,11 +25,11 @@ export default class HeaderSearch extends PureComponent {
     onPressEnter: PropTypes.func,
     onChange: PropTypes.func,
     defaultActiveFirstOption: PropTypes.bool,
-    dataSource: PropTypes.array,
+    dataSource: PropTypes.array
   };
   state = {
     searchMode: false,
-    value: '',
+    value: ''
   };
   componentWillUnmount() {
     clearTimeout(this.timeout);
@@ -35,50 +37,55 @@ export default class HeaderSearch extends PureComponent {
   onKeyDown = (e) => {
     if (e.key === 'Enter') {
       this.timeout = setTimeout(() => {
-        this.props.onPressEnter(this.state.value); // Fix duplicate onPressEnter
+        this
+          .props
+          .onPressEnter(this.state.value); // Fix duplicate onPressEnter
       }, 0);
     }
   }
   onChange = (value) => {
-    this.setState({ value });
-    this.props.onChange();
+    this.setState({value});
+    this
+      .props
+      .onChange();
   }
   enterSearchMode = () => {
-    this.setState({ searchMode: true }, () => {
+    this.setState({
+      searchMode: true
+    }, () => {
       if (this.state.searchMode) {
-        this.input.focus();
+        this
+          .input
+          .focus();
       }
     });
   }
   leaveSearchMode = () => {
-    this.setState({
-      searchMode: false,
-      value: '',
-    });
+    this.setState({searchMode: false, value: ''});
   }
   render() {
-    const { className, placeholder, ...restProps } = this.props;
-    const inputClass = classNames('input', {
-      ['show']: this.state.searchMode,
-    });
+    const {
+      className,
+      placeholder,
+      ...restProps
+    } = this.props;
     return (
       <span
-        className={classNames(className, 'headerSearch')}
-        onClick={this.enterSearchMode}
-      >
-        <Icon type="search" />
+        className={'headerSearch ' +  className}
+        onClick={this.enterSearchMode}>
+        <Icon type="search"/>
         <AutoComplete
-          className={inputClass}
+          className={'input ' + (this.state.searchMode ? 'show' : '')}
           value={this.state.value}
           onChange={this.onChange}
-          {...restProps}
-        >
+          {...restProps}>
           <Input
             placeholder={placeholder}
-            ref={(node) => { this.input = node; }}
+            ref={(node) => {
+            this.input = node;
+          }}
             onKeyDown={this.onKeyDown}
-            onBlur={this.leaveSearchMode}
-          />
+            onBlur={this.leaveSearchMode}/>
         </AutoComplete>
       </span>
     );

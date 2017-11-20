@@ -1,0 +1,176 @@
+.json-schema-doc {
+    font-size: 14px;
+}
+
+.json-schema-doc a {
+    color: rgb(0, 122, 255);
+}
+
+.json-schema-doc .schema-block {
+    font-family: arial;
+    border-radius: 5px;
+    padding: 2px;
+    border-radius: 5px;
+    background: rgba(220, 220, 220, 0.2);
+    border: #dedede 1px dashed;
+}
+
+.json-schema-doc .schema-block.unfold > .detail {
+    display: block;
+}
+
+.json-schema-doc .schema-block ul {
+    list-style: none;
+    margin: 10px 0 10px 2em;
+    padding: 0;
+}
+
+.json-schema-doc .schema-block .detail {
+    display: none;
+}
+.json-schema-doc .schema-block .description {
+    margin-left: 2em;
+    color: #999;
+    margin-top: 10px;
+}
+
+.json-schema-doc .schema-block .summary {
+    border-radius: 5px;
+    padding: 6px 6px 6px 20px;
+    position: relative;
+    overflow: hidden;
+}
+.json-schema-doc .schema-block .schema-detail-trigger {
+    cursor: pointer;
+}
+.json-schema-doc .schema-block .schema-detail-trigger:hover {
+    background: rgba(220, 220, 220, 0.5);
+}
+
+.json-schema-doc .schema-block .schema-detail-trigger:before {
+    content: "+";
+    position: absolute;
+    left: 7px;
+    color: #999;
+}
+
+.json-schema-doc .schema-block.unfold > .schema-detail-trigger:before {
+    content: "-";
+}
+
+.json-schema-doc .schema-block .summary .name {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.json-schema-doc .schema-block .summary .type {
+    line-height: 14px;
+    border-radius: 5px;
+}
+
+.json-schema-doc .schema-block .summary .required {
+    color: #999;
+    margin-left: 10px;
+}
+
+.json-schema-doc .schema-block-object .summary .type {
+    color: brown;
+}
+
+.json-schema-doc .schema-block-array .summary .type {
+    color: steelblue;
+}
+
+.json-schema-doc .schema-block-string .summary .type {
+    color: green;
+}
+
+.json-schema-doc .schema-block-number .summary .type {
+    color: #00f;
+}
+
+.json-schema-doc .schema-block-integer .summary .type {
+    color: #8a2be2;
+}
+.json-schema-doc .schema-block-boolean .summary .type {
+    color: #ff4500;
+}
+.json-schema-doc .schema-block-null .summary .type {
+    color: red;
+}
+
+.json-schema-doc .schema-block .summary .desc {
+    float: right;
+    color: #999;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+    max-width: 70%;
+}
+
+.json-schema-doc .schema-block .constraint {
+    line-height: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: #ddd 1px dashed;
+    color: #999;
+}
+.json-schema-doc .schema-block .constraint > li > div {
+    float: left;
+}
+.json-schema-doc .schema-block .constraint li {
+    overflow: hidden;
+}
+.json-schema-doc .schema-block .constraint li .field {
+    display: inline-block;
+}
+.json-schema-doc .schema-block .constraint li .value {
+    display: inline-block;
+    margin-left: 1em;
+    vertical-align: top;
+}
+.json-schema-doc .schema-block .constraint li .value > .schema-block {
+    margin-bottom: 5px;
+}
+.json-schema-doc .schema-block .constraint li .value > code {
+    color: #ccc;
+    background: white;
+    padding: 0 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.json-schema-doc .schema-block .children > li + li {
+    margin-top: 5px;
+}
+
+/* 若为外部schema */
+.json-schema-doc .schema-block.external {
+    border-color: orange;
+    background-color: rgba(253, 235, 202, 0.2);
+}
+
+.json-schema-doc .schema-block-object .summary .external {
+    color: rgb(216, 147, 22);
+}
+
+.json-schema-doc .schema-block-object .summary .external > a {
+    color: rgb(216, 147, 22);
+}
+
+/* 若为XOf 类型的约束 */
+.json-schema-doc .schema-block .constraint li.constraint-block > .value {
+    float: none;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.json-schema-doc .schema-block .constraint li.constraint-block > .field {
+    float: none;
+}
+
+
