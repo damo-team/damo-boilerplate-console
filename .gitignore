@@ -6,4 +6,3 @@ git-m
 .vscode/
 .DS_Store
 *.log
-build/
