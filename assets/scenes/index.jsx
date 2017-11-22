@@ -89,12 +89,12 @@ class Root extends React.PureComponent {
   
   
   getLayout(layoutOption){
-    const layoutType = layoutOption.layouts.pop();
+    const layoutType = layoutOption.layouts && layoutOption.layouts.pop() || this.state.layout;
     const Layout = Layer.getLayout(layoutType);
     const layoutProps = Layout.getLayoutProps(this.props, layoutOption.children, layoutOption.option);
     const LayoutElement = (<Layout {...layoutProps} />);
     
-    if(layoutOption.layouts.length){
+    if(layoutOption.layouts && layoutOption.layouts.length){
       layoutOption.children = LayoutElement;
       return this.getLayout(layoutOption);
     }else{

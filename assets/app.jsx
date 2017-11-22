@@ -19,5 +19,6 @@ Damo.autoLoadModels(require.context('./models', false, /\w+\.js$/));
 // 自动加载路由
 Damo.autoLoadRoutes(require.context('./scenes', true, /index\.jsx$/), {strict: false});
 
+Damo.route('*', require('./scenes/feedback/exception'));
 // 启动
 Damo.run(document.getElementById('main'), window.CONFIG && window.CONFIG.APPNAME);
