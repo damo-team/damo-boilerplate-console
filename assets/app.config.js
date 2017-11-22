@@ -1,10 +1,5 @@
 import notification from 'antd/lib/notification';
 export default function setGlobalConfig(app){
-  
-  // #! 接口数据预处理
-  app.BaseModel.processData = res => {
-    return res.data;
-  }
 
   // 模拟接口
   if (process.env.NODE_ENV === 'development' && window.location.search.indexOf('debug=true') > -1) {
@@ -12,7 +7,6 @@ export default function setGlobalConfig(app){
     Mocky.Api = app.Api;
     window.mocker = new Mocky();
     app.Api.preFetch = (ajaxOptions) => {
-      debugger
       const option = window.mocker.setParams(ajaxOptions, {
         getName(ajaxOptions){
           return ajaxOptions.url.split('/devtool/mockData/')[1].split('/')[0];
@@ -39,7 +33,7 @@ export default function setGlobalConfig(app){
   }
 
   // #! 接口请求报错统一处理
-  app.Api.checkStatus = (res, ajaxOptions) => {
+  app.Api.processData = (res, ajaxOptions) => {
     if (window.mocker) {
       res = window.mocker.mock(res, ajaxOptions.path);
     }
@@ -57,7 +51,7 @@ export default function setGlobalConfig(app){
       });   
       return false;
     }else{
-      return res;
+      return res.data;
     }
   }
 }

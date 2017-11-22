@@ -28,7 +28,7 @@
     "babylon": "^6.15.0",
     "classnames": "~2.2.5",
     "damo-cntd": "latest",
-    "damo-core": "^0.1.14-beta5",
+    "damo-core": "^0.1.14",
     "json-schema-helper": "0.0.3",
     "lodash": "^4.17.4",
     "mockjs": "^0.1.1",
